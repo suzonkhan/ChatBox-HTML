@@ -1,0 +1,206 @@
+@import "chatbox-variables";
+@import "chatbox-height";
+@import "chatbox-contacts";
+@import "chatbox-conversation";
+@import "chatbox-message-editor";
+@import "chatbox-highlight";
+
+.chatbox-wrapper {
+  display: grid;
+  height: calc(100vh - #{$medium-device-header-height});
+  @media screen and (min-width: 767px) and (max-width: 1000px) {
+    grid-template-columns: 280px auto;
+  }
+  @media screen and (min-width: 1000px) and (max-width: 1500px) {
+    grid-template-columns: 320px auto;
+  }
+  @media screen and (min-width: 1500px) {
+    height: calc(100vh - #{$large-device-header-height});
+    grid-template-columns: 367px auto;
+  }
+
+  &.chatbox-mobile-view-activated {
+    @media screen and (max-width: 767px) {
+      .chatbox-contact-area {
+        display: none;
+      }
+
+      .chatbox-content-area {
+        display: block;
+      }
+    }
+
+  }
+
+  & > div {
+    //border: 1px solid $border-color;
+
+
+    &.chatbox-contact-area {
+      background-color: #fcfcfc;
+    }
+
+    &.chatbox-content-area {
+      background-color: #ffffff;
+      @media screen and (min-width: 767px) {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      & > .chatbox-recipient-area {
+        flex: 0 0 100%;
+        max-width: 100%;
+        height: $message-recipient-height;
+      }
+
+      & > .chatbox-conversation-area {
+        height: calc(100% - #{$message-recipient-height});
+        @media screen and (min-width: 800px) {
+          padding: 0 30px;
+        }
+
+        .chatbox-conversation-inner {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+        }
+      }
+
+      & > .chatbox-conversation-summary {
+        flex: 0 0 320px;
+        max-width: 320px;
+        height: auto;
+        display: none;
+        @media screen and (min-width: 1500px) {
+          flex: 0 0 367px;
+          max-width: 367px;
+        }
+      }
+
+    }
+  }
+
+}
+
+.chatbox-recipient-area {
+  border-bottom: 1px solid $border-color;
+  @media screen and (min-width: 768px) {
+    background: #FCFCFF;
+    box-shadow: rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 12px 12px -6px, rgba(14, 63, 126, 0.04) 0px 24px 24px -12px;
+    border: none;
+  }
+
+
+  .chatbox-recipient-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    @media screen and (min-width: 1200px) {
+      padding: 10px 30px;
+    }
+    @media screen and (max-width: 767px) {
+      padding: 10px 0;
+    }
+
+    .chatbox-mobile-view-controller {
+      @media screen and (min-width: 767px) {
+        display: none;
+      }
+
+      path {
+        fill: $primary-color;
+      }
+    }
+
+    .chatbox-recipient-thumb {
+      width: 48px;
+      height: 48px;
+      @media screen and (max-width: 767px) {
+        width: 40px;
+      }
+    }
+
+    .advance-chat-options {
+      margin-left: auto;
+      button {
+        @include button($text-color: #000, $background-color: transparent, $border-color: transparent, $padding-vertical: 0.20rem, $padding-horizontal: 0.20rem);
+        box-shadow: none !important;
+        width: 38px;
+        height: 38px;
+        padding: 0;
+      }
+      path {
+        fill: $primary-color;
+      }
+    }
+
+    h3 {
+      font-size: 1.1875rem;
+      font-weight: 500;
+      margin: 0;
+    }
+
+
+    p {
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 143%;
+      margin: 0;
+
+      &.chatbox-recipient-time {
+        color: rgba(48, 55, 68, 0.70);
+      }
+    }
+
+    @media screen and (max-width: 1200px) {
+      .conversation-summary-trigger {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 767px) {
+      h3 {
+        font-size: 0.875rem;
+      }
+      p {
+        font-size: 0.75rem;
+      }
+      button {
+        @include button($text-color: #000, $background-color: transparent, $border-color: transparent, $padding-vertical: 0.20rem, $padding-horizontal: 0.20rem);
+        box-shadow: none !important;
+        width: 24px;
+        height: 24px;
+        padding: 0;
+      }
+    }
+  }
+
+}
+
+
+.chatbox-editmode-activated {
+  position: relative;
+
+  .chatbox-message-editor {
+    z-index: 3;
+  }
+
+  .chatbox-overly {
+    content: "";
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.60);
+    position: fixed;
+    z-index: 2;
+    top: 0;
+  }
+}
+
+.chatbox-content-area {
+  display: none;
+}
+

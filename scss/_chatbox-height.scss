@@ -1,0 +1,34 @@
+//Manage Scrolling
+.chatbox-wrapper {
+
+}
+
+.chatbox-contact-list {
+  height: calc(100vh - (#{$medium-device-header-height} + #{$contact-filter-height}));
+  @media screen and (min-width: 1500px) {
+    height: calc(100vh - (#{$large-device-header-height} + #{$contact-filter-height}));
+  }
+  @media screen and (max-width: 500px) {
+    height: calc(100vh - (#{$small-device-header-height} + #{$contact-filter-height}));
+  }
+}
+
+.chatbox-message-list {
+  height: calc(100vh - (#{$medium-device-header-height} + #{$message-recipient-height} + #{$message-editor-height} + 25px));
+  @media screen and (min-width: 1500px) {
+    height: calc(100vh - (#{$large-device-header-height} + #{$message-recipient-height} + #{$message-editor-height} + 25px));
+  }
+  @media screen and (max-width: 500px) {
+    height: calc(100vh - (#{$small-device-header-height} + #{$message-recipient-height} + #{$message-editor-height} + 25px));
+  }
+}
+
+.chatbox-conversation-summary-inner {
+  height: calc(100vh - (#{$medium-device-header-height} + #{$message-recipient-height} + 25px));
+  @media screen and (min-width: 1500px) {
+    height: calc(100vh - (#{$large-device-header-height} + #{$message-recipient-height} + 25px));
+  }
+  @media screen and (max-width: 500px) {
+    height: calc(100vh - (#{$small-device-header-height} + #{$message-recipient-height} + 25px));
+  }
+}

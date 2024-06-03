@@ -1,0 +1,181 @@
+//Manage Conversation Summary Sidebar
+.chatbox-content-area {
+  &.chatbox-conversation-summary-show {
+
+    .chatbox-conversation-summary {
+      display: block !important;
+    }
+
+    .chatbox-conversation-area {
+      flex: 0 0 calc(100% - 320px);
+      max-width: calc(100% - 320px);
+      @media screen and (min-width: 1500px) {
+        flex: 0 0 calc(100% - 367px);
+        max-width: calc(100% - 367px);
+      }
+    }
+  }
+}
+
+.chatbox-conversation-summary {
+  .chatbox-conversation-summary-inner {
+    border-radius: 0.5rem;
+    border: 1px solid rgba(14, 0, 98, 0.10);
+    background: #FFF;
+    box-shadow: 12px 17px 48px 0px rgba(14, 0, 98, 0.10);
+    padding: 26px;
+    margin-top: 20px;
+
+
+    .chatbox-recipient-card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 15px 0;
+      border-bottom: 1px solid $border-color;
+      margin-bottom: 16px;
+
+      &.user-online {
+        .chatbox-recipient-card-thumb:before {
+          background-color: #369450;
+        }
+      }
+
+      &.user-away {
+        .chatbox-recipient-card-thumb:before {
+          background-color: #DDC700;
+        }
+      }
+
+
+      & > div {
+        &.chatbox-recipient-card-thumb {
+          flex: 0 0 50px;
+          max-width: 50px;
+          position: relative;
+          overflow: hidden;
+          border-radius: 4px;
+
+          &:before {
+            content: "";
+            display: block;
+            width: 16px;
+            height: 16px;
+            background-color: #BFBFBF;
+            position: absolute;
+            right: 0;
+            top: 0;
+            border: 2px solid #ffffff;
+            border-radius: 100%;
+          }
+        }
+
+        &.chatbox-recipient-card-info {
+          flex: 0 0 calc(100% - 60px);
+          max-width: calc(100% - 60px);
+        }
+      }
+
+      h3 {
+        margin: 0;
+      }
+
+      p {
+        margin: 0;
+        font-size: 0.875rem;
+        line-height: 120%;
+        margin-bottom: 5px;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+          list-style: none;
+          font-size: 0.9375rem;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 137%;
+          vertical-align: center;
+          position: relative;
+          padding-left: 32px;
+
+          &:before {
+            width: 24px;
+            height: 24px;
+            content: "";
+            display: inline-block;
+            position: absolute;
+            left: 0;
+          }
+
+          &.icon-briefcase {
+            &:before {
+              background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3.99998 19V8.00005V18.6923V18.5914V19ZM4.3077 20.5C3.80257 20.5 3.375 20.325 3.025 19.975C2.675 19.625 2.5 19.1975 2.5 18.6923V8.30777C2.5 7.80264 2.675 7.37507 3.025 7.02507C3.375 6.67507 3.80257 6.50007 4.3077 6.50007H8.5V4.8078C8.5 4.30268 8.675 3.87512 9.025 3.52512C9.375 3.17512 9.80257 3.00012 10.3077 3.00012H13.6923C14.1974 3.00012 14.625 3.17512 14.975 3.52512C15.325 3.87512 15.5 4.30268 15.5 4.8078V6.50007H19.6923C20.1974 6.50007 20.625 6.67507 20.975 7.02507C21.325 7.37507 21.5 7.80264 21.5 8.30777V12.5443C21.2705 12.3853 21.0323 12.2475 20.7855 12.1308C20.5387 12.0142 20.2769 11.9103 20 11.8193V8.30777C20 8.21802 19.9711 8.1443 19.9134 8.0866C19.8557 8.0289 19.782 8.00005 19.6923 8.00005H4.3077C4.21795 8.00005 4.14423 8.0289 4.08653 8.0866C4.02883 8.1443 3.99998 8.21802 3.99998 8.30777V18.6923C3.99998 18.7821 4.02883 18.8558 4.08653 18.9135C4.14423 18.9712 4.21795 19 4.3077 19H11.575C11.6186 19.2667 11.676 19.5234 11.7471 19.7702C11.8183 20.017 11.9064 20.2603 12.0116 20.5H4.3077ZM9.99998 6.50007H14V4.8078C14 4.71805 13.9711 4.64432 13.9134 4.58662C13.8557 4.52892 13.782 4.50007 13.6923 4.50007H10.3077C10.218 4.50007 10.1442 4.52892 10.0865 4.58662C10.0288 4.64432 9.99998 4.71805 9.99998 4.8078V6.50007ZM18 22.5C16.7513 22.5 15.6891 22.0622 14.8135 21.1866C13.9378 20.3109 13.5 19.2487 13.5 18C13.5 16.7513 13.9378 15.6892 14.8135 14.8135C15.6891 13.9379 16.7513 13.5001 18 13.5001C19.2487 13.5001 20.3109 13.9379 21.1865 14.8135C22.0621 15.6892 22.5 16.7513 22.5 18C22.5 19.2487 22.0621 20.3109 21.1865 21.1866C20.3109 22.0622 19.2487 22.5 18 22.5ZM18.4423 17.8193V15.0577H17.5577V18.1808L19.65 20.2731L20.2731 19.65L18.4423 17.8193Z" fill="%23C8C5D4"/></svg>') no-repeat center;
+            }
+          }
+        }
+      }
+    }
+
+    .accordion-wrapper {
+      overflow-y: auto;
+    }
+
+    .chatbox-summary-accordion {
+      .accordion-item {
+        border-bottom: 1px solid $border-color !important;
+      }
+
+      .accordion-button {
+        background-color: transparent;
+        box-shadow: unset;
+        padding-left: 0;
+        padding-right: 0;
+
+        &::after {
+          background-size: 60%;
+          background-position: center;
+        }
+
+        &:not(.collapsed) {
+
+        }
+      }
+    }
+  }
+}
+
+.chatbox-summary-file-link-card {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(14, 0, 98, 0.10);
+  padding: 12px 8px;
+  margin-bottom: 5px;
+
+  & > div {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 120%;
+
+    &:first-child {
+      flex: 0 0 45px;
+      max-width: 45px;
+      text-align: center;
+    }
+
+    a {
+      text-decoration-line: underline;
+      color: inherit;
+    }
+
+    .file-link-card-footer {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+}

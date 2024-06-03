@@ -1,0 +1,188 @@
+.chatbox-message-editor {
+  position: relative;
+  padding: 24px;
+  background-color: #fff;
+
+  .insert-emoji-btn {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    left: 26px;
+    top: 34px;
+    padding: 0;
+  }
+
+  .chatbox-message-editor-expand-trigger {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    padding: 0;
+    display: none;
+    @media screen and (max-width: 767px) {
+      display: block;
+    }
+
+    svg {
+      width: 20px;
+
+      path {
+        fill: #191D24B2;
+      }
+    }
+  }
+
+  textarea {
+    width: 100%;
+    height: 60px;
+    border: none;
+    outline: none;
+    padding: 10px 10px 10px 35px;
+    min-height: 60px;
+    max-height: 50vh;
+    transition: 0.2s;
+
+    &.message-editor-expanded {
+      height: 50vh;
+    }
+  }
+
+  .chatbox-message-editor-helper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    .message-editor-styling-action {
+      button {
+        @include button($text-color: #000, $background-color: transparent, $border-color: transparent, $padding-vertical: 0.20rem, $padding-horizontal: 0.20rem);
+        box-shadow: none !important;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+
+
+        svg {
+          path {
+            fill: #303744B2;
+          }
+        }
+      }
+    }
+
+    .message-editor-functional-action {
+      display: flex;
+      gap: 8px;
+
+      button {
+        @include button($background-color: transparent, $border-color: transparent, $padding-vertical: 0.20rem, $padding-horizontal: 0.20rem);
+        box-shadow: none !important;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 38px;
+        width: 38px;
+
+        svg {
+          path {
+            fill: #A1A0A5;
+          }
+        }
+
+        &.send-message {
+          margin-left: 20px;
+          border: 1px solid rgba(0, 89, 201, 0.12);
+          background: rgba(0, 89, 201, 0.13);
+          position: relative;
+          transition: 0.2s;
+
+          path {
+            fill: $primary-color;
+          }
+
+          &:before {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 100%;
+            background-color: $border-color;
+            position: absolute;
+            left: -12px;
+          }
+
+          &:hover {
+            background-color: $primary-color;
+
+            path {
+              fill: #ffffff;
+            }
+          }
+        }
+
+        @media screen and (max-width: 767px) {
+          width: 24px;
+          height: 24px;
+          padding: 0;
+        }
+      }
+    }
+
+    .dropdown-menu[aria-labelledby="chatbox-editor-settings"] {
+      padding: 1rem;
+      white-space: nowrap;
+
+      .form-radio-group {
+        margin-bottom: 0;
+
+        .form-radio-option {
+          margin-bottom: 10px;
+
+          label {
+            margin-left: 6px;
+          }
+        }
+      }
+    }
+  }
+
+  .chatbox-message-mobile-action {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    display: none;
+    gap: 10px;
+    align-items: end;
+    justify-content: space-between;
+    padding: 10px 24px;
+
+    &.chatbox-message-mobile-action-activated {
+      @media screen and (max-width: 767px) {
+        display: flex;
+      }
+    }
+
+    button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100%;
+      background-color: white;
+      border: 0;
+      flex-direction: column;
+
+      svg {
+        width: 16px;
+
+        path {
+          fill: #0036E3;
+        }
+      }
+    }
+  }
+}

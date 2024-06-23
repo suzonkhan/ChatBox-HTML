@@ -14,6 +14,15 @@ ChatBox-HTML is a lightweight, embeddable chat widget designed to integrate seam
 - **Easy Integration**: Simple to set up and integrate with any HTML-based application.
 - **Extensible**: Designed to be easily extended with plugins or additional features.
 
+## Screenshots
+
+![App Screenshot](https://suzonkhan.github.io/ChatBox-HTML/screenshots/screenshot-01.png)
+
+
+## Demo
+
+Check out the live [demo here](https://suzonkhan.github.io/ChatBox-HTML/).
+
 ## Getting Started
 
 ### Installation
